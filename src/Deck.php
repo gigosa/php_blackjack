@@ -7,13 +7,18 @@ class Deck
 {
     private $deck = [];
 
-    public function __construct()
+    public function __construct(array $suits,array $ranks)
     {
-        foreach (Card::SUITS as $suit) {
-            foreach (Card::RANKS as $rank) {
+        foreach ($suits as $suit) {
+            foreach ($ranks as $rank) {
                 $this->deck[] = new Card($suit, $rank);
             }
         }
+    }
+
+    public function shuffle()
+    {
+        shuffle($this->deck);
     }
 
     /**
@@ -21,7 +26,7 @@ class Deck
      *
      * @return Card|null
      */
-    public function takeCard()
+    public function drawCard()
     {
         $current = current($this->deck);
         if (!$current) {
