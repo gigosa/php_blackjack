@@ -30,7 +30,7 @@ class Player
     {
         $currentScore = 0;
         foreach ($this->handCard as $hand) {
-            $currentScore += $hand->convertCardScore;
+            $currentScore += $hand->convertCardScore();
         }
         return $currentScore;
     }
