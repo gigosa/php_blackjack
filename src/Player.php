@@ -1,50 +1,43 @@
 <?php
 namespace BlackJack;
 
-use \BlackJack\Card;
+use \BlackJack\Hand;
 
 class Player
 {
     /**
-     * 手札のCardObjの配列
-     * @var Card[] array
+     * @var Hand
      */
-    private $handCard = [];
-    private $isBurst = false;
+    private $hand;
+    
+    public function __construct(Hand $hand)
+    {
+        $this->hand = $hand;
+    }
 
     /**
-     * カードを手札に加える
      * @param Card $card
      * @return Player
      */
-    public function addHand(Card $card): Player
+    public function addHand(Card $card)
     {
-        $this->handCard[] = $card;
+        $this->hand->add($card);
         return $this;
     }
 
     /**
-     * @return integer
+     * @return int
      */
-    public function currentScore(): int
+    public function currentScore()
     {
-        $currentScore = 0;
-        foreach ($this->handCard as $hand) {
-            $currentScore += $hand->convertCardScore();
-        }
-        return $currentScore;
+        return $this->hand->currentScore();
     }
 
     /**
-     * バースト判定
-     * @return bool
+     * @return boolean
      */
-    public function isBurst()
+    public function isBust()
     {
-        $currentScore = $this->currentScore();
-        if ($currentScore <= 21) {
-            return false;
-        }
-        return true;
+        return $this->hand->isBust();
     }
 }
