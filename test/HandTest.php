@@ -7,23 +7,23 @@ class HandTest extends TestCase
 {
     public function testCurrentScore()
     {
-        $cardFirst = new Card(Card::SUITS[0], Card::RANKS[2]);
+        $cardFirst = new Card(new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[2]));
         $hand = new Hand();
         $hand->add($cardFirst);
-        $cardSecond = new Card(Card::SUITS[1], Card::RANKS[11]);
+        $cardSecond = new Card(new Suit(Suit::SUITS[1]), new Rank(Rank::RANKS[11]));
         $hand->add($cardSecond);
         $this->assertEquals(13, $hand->currentScore());
     }
 
     public function testIsBust()
     {
-        $cardFirst = new Card(Card::SUITS[2], Card::RANKS[11]);
+        $cardFirst = new Card(new Suit(Suit::SUITS[2]), new Rank(Rank::RANKS[11]));
         $hand = new Hand();
         $hand->add($cardFirst);
-        $cardSecond = new Card(Card::SUITS[3], Card::RANKS[12]);
+        $cardSecond = new Card(new Suit(Suit::SUITS[3]), new Rank(Rank::RANKS[12]));
         $hand->add($cardSecond);
         $this->assertFalse($hand->isBust());
-        $cardThird = new Card(Card::SUITS[0], Card::RANKS[2]);
+        $cardThird = new Card(new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[2]));
         $hand->add($cardThird);
         $this->assertTrue($hand->isBust());
     }

@@ -11,7 +11,7 @@ class Deck
     {
         foreach ($suits as $suit) {
             foreach ($ranks as $rank) {
-                $this->deck[] = new Card($suit, $rank);
+                $this->deck[] = new Card(new Suit($suit), new Rank($rank));
             }
         }
     }

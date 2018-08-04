@@ -8,8 +8,8 @@ class CardTest extends TestCase
     public function convertCardScoreProvider()
     {
         return [
-            [Card::SUITS[0], Card::RANKS[0], 1],
-            [Card::SUITS[1], Card::RANKS[12], 10]
+            [new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[0]), 1],
+            [new Suit(Suit::SUITS[1]), new Rank(Rank::RANKS[12]), 10]
         ];
     }
 
@@ -25,8 +25,8 @@ class CardTest extends TestCase
     public function convertDisplayStringProvider()
     {
         return [
-            [Card::SUITS[0], Card::RANKS[0], 'スペードのA'],
-            [Card::SUITS[1], Card::RANKS[12], 'ハートのK']
+            [new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[0]), 'スペードのA'],
+            [new Suit(Suit::SUITS[1]), new Rank(Rank::RANKS[12]), 'ハートのK']
         ];
     }
 

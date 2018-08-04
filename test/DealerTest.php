@@ -8,11 +8,11 @@ class DealerTest extends TestCase
     public function testWantsToDraw()
     {
         $dealer = new Dealer(new Hand);
-        $dealer->addHand(new Card(Card::SUITS[0], Card::RANKS[10]));
+        $dealer->addHand(new Card(new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[10])));
         $this->assertTrue($dealer->wantsToDraw());
-        $dealer->addHand(new Card(Card::SUITS[2], Card::RANKS[5]));
+        $dealer->addHand(new Card(new Suit(Suit::SUITS[2]), new Rank(Rank::RANKS[5])));
         $this->assertTrue($dealer->wantsToDraw());
-        $dealer->addHand(new Card(Card::SUITS[0], Card::RANKS[0]));
+        $dealer->addHand(new Card(new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[0])));
         $this->assertFalse($dealer->wantsToDraw());
     }
 }

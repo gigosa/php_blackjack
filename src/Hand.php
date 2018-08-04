@@ -28,8 +28,8 @@ class Hand
     public function currentScore(): int
     {
         $currentScore = 0;
-        foreach ($this->handCard as $hand) {
-            $currentScore += $hand->convertCardScore();
+        foreach ($this->handCard as $card) {
+            $currentScore += $card->convertCardScore();
         }
         return $currentScore;
     }
