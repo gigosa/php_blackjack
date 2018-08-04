@@ -9,6 +9,14 @@ class DeckTest extends TestCase
     {
         $deck = new Deck(['spade'], [1]);
         $this->assertInstanceOf(Card::class, $deck->drawCard());
-        $this->assertNull($deck->drawCard());
+    }
+
+    /**
+     * @expectedException \OutOfRangeException
+     */
+    public function testDrawCardException()
+    {
+        $deck = new Deck([], []);
+        $deck->drawCard();
     }
 }

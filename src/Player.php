@@ -3,7 +3,7 @@ namespace BlackJack;
 
 use \BlackJack\Hand;
 
-class Player
+class Player implements PlayerInterface
 {
     /**
      * @var Hand
@@ -17,7 +17,7 @@ class Player
 
     /**
      * @param Card $card
-     * @return Player
+     * @return self
      */
     public function addHand(Card $card)
     {

@@ -3,7 +3,7 @@ namespace BlackJack;
 
 use \BlackJack\Card;
 
-class Deck
+class Deck implements DeckInterface
 {
     private $deck = [];
 
@@ -22,15 +22,15 @@ class Deck
     }
 
     /**
-     * カードを引く関数
+     * カードを引く
      *
-     * @return Card|null
+     * @return Card
      */
     public function drawCard()
     {
         $current = current($this->deck);
         if (!$current) {
-            return null;
+            throw new \OutOfRangeException('no card is remained');
         }
         next($this->deck);
         return $current;
