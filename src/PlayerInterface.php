@@ -17,4 +17,9 @@ interface PlayerInterface
      * バースト判定
      */
     public function isBust();
+
+    /**
+     * 最後に加えたカードを返す
+     */
+    public function showAddedCard();
 }

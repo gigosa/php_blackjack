@@ -23,7 +23,7 @@ class Deck implements DeckInterface
 
     /**
      * カードを引く
-     *
+     * @throws \OutOfRangeException
      * @return Card
      */
     public function drawCard()

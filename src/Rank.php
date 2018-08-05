@@ -32,6 +32,7 @@ class Rank
                 $string = 'K';
                 break;
             default:
+                $string = $this->rank;
                 break;
         }
         return $string;

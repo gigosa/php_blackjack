@@ -22,7 +22,7 @@ class CardTest extends TestCase
         $this->assertEquals($expected, $card->convertCardScore());
     }
 
-    public function convertDisplayStringProvider()
+    public function convertToStringProvider()
     {
         return [
             [new Suit(Suit::SUITS[0]), new Rank(Rank::RANKS[0]), 'スペードのA'],
@@ -31,11 +31,11 @@ class CardTest extends TestCase
     }
 
     /**
-     * @dataProvider convertDisplayStringProvider
+     * @dataProvider convertToStringProvider
      */
-    public function testConvertDisplayString($suit, $rank, $expected)
+    public function testconvertToString($suit, $rank, $expected)
     {
         $card = new Card($suit, $rank);
-        $this->assertEquals($expected, $card->convertDisplayString());
+        $this->assertEquals($expected, $card->convertToString());
     }
 }

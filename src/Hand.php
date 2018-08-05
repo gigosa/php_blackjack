@@ -23,6 +23,24 @@ class Hand
     }
 
     /**
+     * 最も最近引いたカードを返す
+     * @return Card
+     */
+    public function getLatestHand()
+    {
+        return end($this->handCard);
+    }
+
+    /**
+     * 現在の手札枚数を返す
+     * @return int
+     */
+    public function currentNumberOfCards()
+    {
+        return count($this->handCard);
+    }
+
+    /**
      * @return integer
      */
     public function currentScore(): int

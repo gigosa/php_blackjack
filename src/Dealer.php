@@ -9,10 +9,12 @@ class Dealer implements PlayerInterface
      * @var Hand
      */
     private $hand;
+    private $name;
     
-    public function __construct(Hand $hand)
+    public function __construct(Hand $hand, string $name)
     {
         $this->hand = $hand;
+        $this->name = $name;
     }
 
     /**
@@ -23,6 +25,18 @@ class Dealer implements PlayerInterface
     {
         $this->hand->add($card);
         return $this;
+    }
+
+    public function showAddedCard()
+    {
+        $addedCard = $this->hand->getLatestHand();
+        if (!$addedCard) {
+            throw new \OutOfRangeException('no added card');
+        }
+        if ($this->hand->currentNumberOfCards() == 2) {
+            return '2枚目のカードは伏せられています';
+        }
+        return $addedCard->convertToString();
     }
 
     /**
@@ -52,5 +66,10 @@ class Dealer implements PlayerInterface
             return false;
         }
         return true;
+    }
+
+    public function getName()
+    {
+        return $this->name;
     }
 }

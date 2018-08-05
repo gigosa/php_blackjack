@@ -32,7 +32,7 @@ class Card
      * 表示用の文字列に変換する
      * @return string
      */
-    public function convertDisplayString(): string
+    public function convertToString(): string
     {
         return $this->suit->convertToString() . 'の' . $this->rank->convertToString();
     }
