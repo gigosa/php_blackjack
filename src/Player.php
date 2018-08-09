@@ -33,7 +33,7 @@ class Player implements PlayerInterface
         if (!$addedCard) {
             throw new \OutOfRangeException('no added card');
         }
-        return $addedCard->convertToString();
+        return $this->name . 'は' . $addedCard->convertToString() . 'を引きました';
     }
 
     /**

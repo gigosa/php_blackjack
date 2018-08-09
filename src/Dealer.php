@@ -34,9 +34,9 @@ class Dealer implements PlayerInterface
             throw new \OutOfRangeException('no added card');
         }
         if ($this->hand->currentNumberOfCards() == 2) {
-            return '2枚目のカードは伏せられています';
+            return 'ディーラーの2枚目のカードは伏せられています';
         }
-        return $addedCard->convertToString();
+        return $this->name . 'は' . $addedCard->convertToString() . 'を引きました';
     }
 
     /**
